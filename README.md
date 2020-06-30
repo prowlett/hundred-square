@@ -4,4 +4,4 @@ Generates a grid of numbers in little square boxes using Lua to generate TikZ co
 
 Set `rowlength` to some number and the code will make a square that size.
 
-For a non-square, set `rowlength` to how many numbers you want on each row and override `target` to what you want the last number in the grid to be. 
+For a non-square, set `rowlength` to how many numbers you want on each row and override `target` to what you want the last number in the grid to be. If you don't make `target` divisible by `rowlength`, then there will be an incomplete final row. 
