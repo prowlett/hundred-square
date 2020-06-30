@@ -1,0 +1,27 @@
+\documentclass{standalone}
+\usepackage{luacode}
+\usepackage{tikz}
+
+\title{Hundred square}
+\author{Peter Rowlett}
+\date{June 2020}
+
+\begin{document}
+\begin{tikzpicture}
+\begin{luacode*}
+    rowlength=10
+    target=rowlength*rowlength
+    
+    i=0
+    while rowlength*i<=target do
+        for j=1,rowlength do
+            if j+rowlength*i<=target then
+                tex.print("\\draw (" .. j-0.5 .. ",-" .. i-0.5 .. ") rectangle (" .. j+0.5 .. ",-" .. i+0.5 .. ");")
+                tex.print("\\node at (" .. j .. ",-" .. i .. ") {" .. j+rowlength*i .. "};")
+            end
+        end
+        i = i+1
+    end
+\end{luacode*}
+\end{tikzpicture}
+\end{document}
