@@ -1,0 +1,37 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[top=2cm, bottom=2cm, left=2.5cm, right=2.5cm]{geometry} 
+\usepackage{luacode}
+\usepackage{tikz}
+
+\title{Hundred square colouring}
+\author{Peter Rowlett}
+\date{June 2020}
+
+\begin{document}
+\pagenumbering{gobble}
+\huge
+\begin{luacode*}
+    for c=2,12 do
+        tex.print{"\\section*{\\Huge " .. c .. "}"}
+        tex.print("Choose a colour. Use it to colour " .. c .. " and all multiples of " .. c .. "\\\\\\\\")
+        tex.print("\\begin{center}")
+        tex.print("\\begin{tikzpicture}[scale=1.5]")
+        rowlength=10
+        target=rowlength*rowlength
+        
+        i=0
+        while rowlength*i<=target do
+            for j=1,rowlength do
+                if j+rowlength*i<=target then
+                    tex.print("\\draw (" .. j-0.5 .. ",-" .. i-0.5 .. ") rectangle (" .. j+0.5 .. ",-" .. i+0.5 .. ");")
+                    tex.print("\\node at (" .. j .. ",-" .. i .. ") {" .. j+rowlength*i .. "};")
+                end
+            end
+            i = i+1
+        end
+        tex.print("\\end{tikzpicture}")
+        tex.print("\\end{center}")
+        tex.print("\\newpage")
+    end
+\end{luacode*}
+\end{document}
