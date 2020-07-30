@@ -1,13 +1,16 @@
-\documentclass{standalone}
+\documentclass[tikz,border=3pt]{standalone}
 \usepackage{luacode}
-\usepackage{tikz}
 
 \title{Hundred square}
 \author{Peter Rowlett}
 \date{June 2020}
 
+\usepackage{fontspec}
+\setmainfont{KG Primary Penmanship} % set named system font here
+
 \begin{document}
-\begin{tikzpicture}
+\huge
+\begin{tikzpicture}[every node/.style={inner sep=0,outer sep=0}]
 \begin{luacode*}
     rowlength=10
     target=rowlength*rowlength
